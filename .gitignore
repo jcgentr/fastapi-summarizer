@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# FastAPI
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Database
+*.sqlite3
+*.db
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+
+# Dependency directories
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
