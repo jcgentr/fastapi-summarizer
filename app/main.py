@@ -13,6 +13,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "URL Summarizer"
     ANTHROPIC_API_KEY: str
+    DATABASE_URL: str
     model_config = SettingsConfigDict(env_file=".env")
 
 
@@ -59,16 +60,13 @@ class ArticleRequest(SQLModel):
     url: str
 
 
-sqlite_file_name = "data/summaries.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
-
-connect_args = {"check_same_thread": False}
-engine = create_engine(sqlite_url, connect_args=connect_args)
-
-
 @lru_cache
 def get_settings():
     return Settings()
+
+
+def get_database_url(settings: Settings):
+    return settings.DATABASE_URL
 
 
 def create_db_and_tables():
@@ -79,6 +77,9 @@ def get_session():
     with Session(engine) as session:
         yield session
 
+
+connect_args = {"check_same_thread": False}
+engine = create_engine(get_database_url(get_settings()), connect_args=connect_args)
 
 SessionDep = Annotated[Session, Depends(get_session)]
 SettingsDep= Annotated[Settings, Depends(get_settings)]

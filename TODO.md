@@ -4,6 +4,7 @@
 - [ ] build tables and data analytics for articles
 - [ ] add ability to rate article after reading (0-5 stars)
 - [ ] limit how long the article can be
+- [x] deploy on fly.io
 - [x] build simple frontend UI to connect this to
 - [x] convert this to a FastAPI app
 - [x] capture title and author if they exists

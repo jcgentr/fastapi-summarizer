@@ -4,7 +4,7 @@
 #
 
 app = 'fastapi-summarizer'
-primary_region = 'arn'
+primary_region = 'iad'
 
 [build]
 
@@ -21,3 +21,7 @@ primary_region = 'arn'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 1024
+
+[mounts]
+  source="data"
+  destination="/data"
